@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Юля — переходы, стратегия, внутренняя опора</title>
+<meta name="description" content="Психолог, коуч, фасилитатор, ментор. Работаю, когда старая версия себя больше не вывозит. 10+ лет практики.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ НАСТРОЙКИ: поменяйте ссылку на Telegram здесь и в HTML ниже (поиск по TG_LINK) ============ */
+  :root {
+    --bg: #f6f1ea;
+    --bg-soft: #efe7dc;
+    --card: #fbf8f4;
+    --ink: #2b2622;
+    --muted: #6f655c;
+    --line: #ddd2c4;
+    --accent: #3f5a4c;      /* глубокий зелёный — опора */
+    --accent-2: #b8704f;    /* терракота — переход */
+    --on-accent: #fbf8f4;
+    --radius: 18px;
+    --maxw: 1080px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1b1917; --bg-soft: #232019; --card: #25221f;
+      --ink: #efe8df; --muted: #b3a89c; --line: #3a352f;
+      --accent: #8fb3a0; --accent-2: #d99873; --on-accent: #1b1917;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1b1917; --bg-soft: #232019; --card: #25221f;
+    --ink: #efe8df; --muted: #b3a89c; --line: #3a352f;
+    --accent: #8fb3a0; --accent-2: #d99873; --on-accent: #1b1917;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Manrope", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(32px, 5vw, 46px); margin-bottom: 20px; }
+  h3 { font-size: 26px; margin-bottom: 8px; }
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); font-weight: 600; margin-bottom: 14px; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 620px; }
+  section { padding: 72px 0; }
+  @media (min-width: 720px) { section { padding: 104px 0; } }
+
+  /* кнопки */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--on-accent);
+    padding: 16px 26px; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: 16px; transition: transform .2s, opacity .2s;
+  }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+
+  /* шапка */
+  header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-family: "Cormorant Garamond", serif; font-size: 26px; font-weight: 600; text-decoration: none; }
+  nav { display: none; gap: 28px; font-size: 15px; color: var(--muted); }
+  nav a { text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+  @media (min-width: 860px) { nav { display: flex; } }
+  header .btn { padding: 10px 18px; font-size: 14px; }
+
+  /* первый экран */
+  .hero { padding-top: 56px; }
+  .hero-grid { display: grid; gap: 40px; align-items: center; }
+  @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.25fr .75fr; gap: 64px; } .hero { padding-top: 96px; } }
+  .hero h1 { font-size: clamp(46px, 8vw, 84px); margin-bottom: 18px; }
+  .tags { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 15px; color: var(--accent); font-weight: 600; margin-bottom: 26px; }
+  .tags i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); display: inline-block; }
+  .hero .statement { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(26px, 3.6vw, 34px); line-height: 1.25; margin-bottom: 34px; max-width: 560px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .hero-note { font-size: 14px; color: var(--muted); }
+
+  .portrait {
+    aspect-ratio: 4/5; border-radius: 200px 200px var(--radius) var(--radius);
+    background: linear-gradient(160deg, var(--bg-soft), color-mix(in srgb, var(--accent) 22%, var(--bg-soft)));
+    border: 1px solid var(--line); overflow: hidden; position: relative;
+    display: grid; place-items: center; max-width: 380px; width: 100%; justify-self: center;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .portrait .ph { font-family: "Cormorant Garamond", serif; font-size: 120px; color: var(--accent); opacity: .5; }
+  .badge {
+    position: absolute; left: 16px; bottom: 16px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 10px 14px; font-size: 13px; color: var(--muted);
+  }
+  .badge b { display: block; font-family: "Cormorant Garamond", serif; font-size: 28px; color: var(--ink); line-height: 1; }
+
+  /* когда приходят */
+  .soft { background: var(--bg-soft); }
+  .situations { display: grid; gap: 14px; margin-top: 36px; }
+  @media (min-width: 720px) { .situations { grid-template-columns: 1fr 1fr; } }
+  .situation { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; display: flex; gap: 14px; }
+  .situation span { color: var(--accent-2); font-family: "Cormorant Garamond", serif; font-size: 24px; line-height: 1.1; flex: none; }
+
+  /* три опоры */
+  .pillars { display: grid; gap: 18px; margin-top: 40px; }
+  @media (min-width: 860px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+  .pillar { border-top: 2px solid var(--accent); padding-top: 22px; }
+  .pillar .num { font-size: 13px; color: var(--muted); letter-spacing: .1em; margin-bottom: 8px; }
+  .pillar p { color: var(--muted); }
+
+  /* форматы */
+  .formats { display: grid; gap: 18px; margin-top: 40px; }
+  @media (min-width: 720px) { .formats { grid-template-columns: 1fr 1fr; } }
+  .format { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; }
+  .format p { color: var(--muted); flex: 1; }
+  .format .price { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--line); font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .format .price b { font-family: "Cormorant Garamond", serif; font-size: 30px; }
+  .format.main { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .format.main p { color: color-mix(in srgb, var(--on-accent) 80%, transparent); }
+  .format.main .price { border-color: color-mix(in srgb, var(--on-accent) 35%, transparent); }
+
+  /* как проходит */
+  .steps { display: grid; gap: 28px; margin-top: 40px; counter-reset: s; }
+  @media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { position: relative; padding-left: 58px; }
+  .step::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: 0; top: 0; width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--accent-2); color: var(--accent-2);
+    display: grid; place-items: center; font-family: "Cormorant Garamond", serif; font-size: 22px;
+  }
+  .step h3 { font-size: 22px; }
+  .step p { color: var(--muted); }
+
+  /* обо мне */
+  .about-grid { display: grid; gap: 36px; }
+  @media (min-width: 860px) { .about-grid { grid-template-columns: .9fr 1.1fr; gap: 64px; } }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+  .fact b { display: block; font-family: "Cormorant Garamond", serif; font-size: 34px; line-height: 1; margin-bottom: 6px; color: var(--accent); }
+  .fact span { font-size: 14px; color: var(--muted); }
+  .roles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .roles li { list-style: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+  .about-text p + p { margin-top: 14px; }
+
+  /* финальный призыв */
+  .cta { text-align: center; }
+  .cta-box { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 56px 20px; }
+  .cta h2 { max-width: 640px; margin: 0 auto 16px; }
+  .cta .lead { margin: 0 auto 30px; }
+
+  footer { padding: 36px 0 48px; color: var(--muted); font-size: 13px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  /* мягкое появление */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">Юля</a>
+    <nav>
+      <a href="#when">С чем приходят</a>
+      <a href="#formats">Форматы</a>
+      <a href="#how">Как проходит</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+    <!-- TG_LINK -->
+    <a class="btn" href="https://t.me/USERNAME" target="_blank" rel="noopener">Написать</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ПЕРВЫЙ ЭКРАН -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Психолог · коуч · фасилитатор · ментор</p>
+        <h1>Юля</h1>
+        <div class="tags">Переходы <i></i> стратегия <i></i> внутренняя опора</div>
+        <p class="statement">Работаю, когда старая версия себя больше не вывозит.</p>
+        <div class="hero-actions">
+          <!-- TG_LINK -->
+          <a class="btn" href="https://t.me/USERNAME" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
+            Глубже — в Telegram
+          </a>
+          <span class="hero-note">5 000 ₽ / час · онлайн</span>
+        </div>
+      </div>
+      <div class="portrait">
+        <!-- Замените на фото: <img src="photo.jpg" alt="Юля"> и удалите строку ниже -->
+        <span class="ph">Ю</span>
+        <div class="badge"><b>10+ лет</b>практики</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- С ЧЕМ ПРИХОДЯТ -->
+  <section class="soft" id="when">
+    <div class="wrap reveal">
+      <p class="eyebrow">С чем приходят</p>
+      <h2>Когда прежние способы<br>перестали работать</h2>
+      <p class="lead">Снаружи всё может выглядеть нормально. Но внутри понятно: так, как раньше, — уже не получится.</p>
+      <div class="situations">
+        <div class="situation"><span>—</span><div>Смена роли, профессии, города или отношений — и непонятно, кто я в новой точке.</div></div>
+        <div class="situation"><span>—</span><div>Выросли задачи, а привычные опоры и способы справляться больше не держат.</div></div>
+        <div class="situation"><span>—</span><div>Много сил уходит на «держаться», и почти не остаётся на то, чтобы двигаться.</div></div>
+        <div class="situation"><span>—</span><div>Нужно принять важное решение и выстроить путь — без самообмана и спешки.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТРИ ОПОРЫ -->
+  <section>
+    <div class="wrap reveal">
+      <p class="eyebrow">В чём работа</p>
+      <h2>Три опоры</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="num">01</div>
+          <h3>Переходы</h3>
+          <p>Проходим период перемен осознанно: отпускаем то, что отслужило, и собираем новую версию себя — без рывков и выгорания.</p>
+        </div>
+        <div class="pillar">
+          <div class="num">02</div>
+          <h3>Стратегия</h3>
+          <p>Проясняем, куда вы на самом деле идёте, и превращаем это в понятные шаги, решения и приоритеты.</p>
+        </div>
+        <div class="pillar">
+          <div class="num">03</div>
+          <h3>Внутренняя опора</h3>
+          <p>Возвращаем устойчивость, на которую можно опереться, когда вокруг и внутри всё меняется.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМАТЫ -->
+  <section class="soft" id="formats">
+    <div class="wrap reveal">
+      <p class="eyebrow">Форматы</p>
+      <h2>Как можно работать</h2>
+      <div class="formats">
+        <div class="format main">
+          <h3>Индивидуальная сессия</h3>
+          <p>Психологическая и коучинговая работа один на один с вашим запросом: от острой ситуации до долгой стратегии.</p>
+          <div class="price"><span>Час работы</span><b>5 000 ₽</b></div>
+        </div>
+        <div class="format">
+          <h3>Менторство</h3>
+          <p>Сопровождение на длинной дистанции: вы делаете изменения в жизни и работе, я рядом — с опытом, вопросами и обратной связью.</p>
+          <div class="price"><span>Час работы</span><b>5 000 ₽</b></div>
+        </div>
+        <div class="format">
+          <h3>Групповые программы</h3>
+          <p>Программы для групп, где изменения идут быстрее за счёт поддержки и опыта других участников.</p>
+          <div class="price"><span>Ближайшие наборы</span><span>в Telegram</span></div>
+        </div>
+        <div class="format">
+          <h3>Фасилитация</h3>
+          <p>Стратегические сессии и встречи для команд: помогаю группе договориться, найти решение и выйти с планом.</p>
+          <div class="price"><span>Стоимость</span><span>по запросу</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ПРОХОДИТ -->
+  <section id="how">
+    <div class="wrap reveal">
+      <p class="eyebrow">Как проходит</p>
+      <h2>Три шага до начала</h2>
+      <div class="steps">
+        <div class="step"><h3>Напишите в Telegram</h3><p>Пара строк о том, что происходит. Этого достаточно, чтобы начать.</p></div>
+        <div class="step"><h3>Договоримся о встрече</h3><p>Подберём формат и удобное время.</p></div>
+        <div class="step"><h3>Первая сессия</h3><p>Проясняем запрос и понимаем, как будем двигаться дальше.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБО МНЕ -->
+  <section class="soft" id="about">
+    <div class="wrap about-grid reveal">
+      <div>
+        <p class="eyebrow">Обо мне</p>
+        <h2>Юля</h2>
+        <ul class="roles">
+          <li>Психолог</li><li>Коуч</li><li>Фасилитатор</li><li>Ментор</li><li>Коуч групповых программ</li>
+        </ul>
+        <div class="facts">
+          <div class="fact"><b>10+</b><span>лет веду практики</span></div>
+          <div class="fact"><b>1:1</b><span>и групповой формат</span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>Больше десяти лет я веду практики и сопровождаю людей в моменты, когда жизнь требует новой версии себя.</p>
+        <p>Соединяю психологическую глубину и коучинговую ясность: сначала разбираемся, что на самом деле происходит внутри, а потом выстраиваем опору и стратегию, чтобы идти дальше.</p>
+        <p>Работаю с отдельными людьми, группами и командами.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <div class="cta-box">
+        <h2>Если старая версия себя больше не вывозит — напишите</h2>
+        <p class="lead">Глубже — в Telegram: там больше о подходе, практиках и ближайших программах.</p>
+        <!-- TG_LINK -->
+        <a class="btn" href="https://t.me/USERNAME" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
+          Написать в Telegram
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Юля · переходы, стратегия, внутренняя опора</span>
+    <span>Не заменяет медицинскую и психиатрическую помощь</span>
+  </div>
+</footer>
+
+<script>
+  // мягкое появление блоков при прокрутке
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    els.forEach(el => io.observe(el));
+  } else { els.forEach(el => el.classList.add('in')); }
+</script>
+</body>
+</html>
